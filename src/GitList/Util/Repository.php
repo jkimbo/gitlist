@@ -143,4 +143,14 @@ class Repository
         return array();
     }
 
+		public function getDescription($repo)
+		{
+      $repository = $this->app['git']->getRepository($this->app['git.repos'] . $repo);
+			$description = $repository->getPath().'/.git/description';
+			if (file_exists($description)) {
+					$description = file_get_contents($description);
+			}
+			return $description;
+		}
+
 }

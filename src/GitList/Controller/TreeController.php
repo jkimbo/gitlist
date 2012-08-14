@@ -39,6 +39,7 @@ class TreeController implements ControllerProviderInterface
                 'branches'       => $repository->getBranches(),
                 'tags'           => $repository->getTags(),
                 'readme'         => $app['util.repository']->getReadme($repo, $branch),
+								'description'		 => $app['util.repository']->getDescription($repo),
             ));
         })->assert('repo', '[\w-._]+')
           ->assert('branch', '[\w-._]+')
