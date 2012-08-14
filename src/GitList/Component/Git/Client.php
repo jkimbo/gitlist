@@ -65,7 +65,12 @@ class Client
             throw new \RuntimeException('There are no GIT repositories in ' . $path);
         }
 
-        sort($repositories);
+				uasort($repositories, function($a, $b) {
+					if($a['mtime'] == $b['mtime']) {
+						return 0;
+					}	
+					return ($a['mtime'] > $b['mtime']) ? -1 : 1;
+				});
 
         return $repositories;
     }
@@ -106,7 +111,7 @@ class Client
                         $description = 'There is no repository description file. Please, create one to remove this message.';
                     }
 
-                    $repositories[] = array('name' => $file->getFilename(), 'path' => $file->getPathname(), 'description' => $description, 'mtime' => \GitList\Util\View::getDate($file->getMTime()));
+                    $repositories[] = array('name' => $file->getFilename(), 'path' => $file->getPathname(), 'description' => $description, 'mtime' => $file->getMTime(), 'htime' => \GitList\Util\View::getDate(mktime(), $file->getMTime()));
                     continue;
                 }
             }

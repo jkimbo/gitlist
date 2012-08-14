@@ -46,21 +46,61 @@ class View
     }
 
 		/**
-		 * Get natural date
-		 * From https://github.com/gburtini/Humanize-PHP
+		 * This function prints the difference between two php datetime objects
+		 * in a more human readable form
+		 * inputs should be like strtotime($date)
+		 * Adapted from https://gist.github.com/207624 python version
+		 * From https://gist.github.com/1053741
 		 */
-		public static function getDate($timestamp, $format='F j, Y') 
-		{
-			// this -60 deals with a bug in strtotime on (some?) PHP builds.
-			$end_tomorrow = strtotime("+2 days 12:01am")-60;
-			$tomorrow = strtotime("tomorrow 12:01am")-60;
-			$yesterday = strtotime("yesterday 12:01am")-60;
-			$today = strtotime("today 12:01am")-60;
-			
-			if($timestamp > $yesterday && $timestamp < $today) return "yesterday";
-			if($timestamp > $today && $timestamp < $tomorrow) return "today";
-			if($timestamp > $tomorrow && $timestamp < $end_tomorrow) return "tomorrow";
-			
-			return date($format, $timestamp);			
+		public static function getDate($now, $otherDate=null, $offset=null){
+			if($otherDate != null){
+				$offset = $now - $otherDate;
+			}
+
+			if($offset != null){
+				$deltaS = $offset%60;
+				$offset /= 60;
+				$deltaM = $offset%60;
+				$offset /= 60;
+				$deltaH = $offset%24;
+				$offset /= 24;
+				$deltaD = ($offset > 1)?ceil($offset):$offset;
+			} else {
+				throw new \Exception("Must supply otherdate or offset (from now)");
+			}
+			if($deltaD > 1){
+				if($deltaD > 365){
+					$years = ceil($deltaD/365);
+					if($years ==1){
+						return "last year"; 
+					} else{
+						return "<br>$years years ago";
+					}	
+				}
+				/*
+				if($deltaD > 6){
+					return date('d-M',strtotime("$deltaD days ago"));
+				}		
+				 */
+				return "$deltaD days ago";
+			}
+			if($deltaD == 1){
+				return "Yesterday";
+			}
+			if($deltaH == 1){
+				return "last hour";
+			}
+			if($deltaM == 1){
+				return "last minute";
+			}
+			if($deltaH > 0){
+				return $deltaH." hours ago";
+			}
+			if($deltaM > 0){
+				return $deltaM." minutes ago";
+			}
+			else{
+				return "few seconds ago";
+			}
 		}
 }
