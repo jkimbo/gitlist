@@ -52,10 +52,16 @@ class View
 		 * Adapted from https://gist.github.com/207624 python version
 		 * From https://gist.github.com/1053741
 		 */
-		public static function getDate($now, $otherDate=null, $offset=null){
-			if($otherDate != null){
-				$offset = $now - $otherDate;
+		public static function getDate($date, $otherDate=null, $offset=null){
+			if($otherDate == null) {
+				$otherDate = mktime();
 			}
+
+			if(!is_int($date)) {
+				$date = strtotime($date);
+			}
+
+			$offset = $otherDate - $date;
 
 			if($offset != null){
 				$deltaS = $offset%60;
@@ -74,7 +80,7 @@ class View
 					if($years ==1){
 						return "last year"; 
 					} else{
-						return "<br>$years years ago";
+						return "$years years ago";
 					}	
 				}
 				/*

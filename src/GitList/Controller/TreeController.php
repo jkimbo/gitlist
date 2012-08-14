@@ -29,6 +29,7 @@ class TreeController implements ControllerProviderInterface
                 $parent = '';
             }
 
+						var_dump($repository->getRecentCommit($branch));
             return $app['twig']->render('tree.twig', array(
                 'files'          => $files->output(),
                 'repo'           => $repo,
@@ -40,6 +41,7 @@ class TreeController implements ControllerProviderInterface
                 'tags'           => $repository->getTags(),
                 'readme'         => $app['util.repository']->getReadme($repo, $branch),
 								'description'		 => $app['util.repository']->getDescription($repo),
+								'commit'		     => $repository->getRecentCommit($branch),
             ));
         })->assert('repo', '[\w-._]+')
           ->assert('branch', '[\w-._]+')

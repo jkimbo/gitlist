@@ -47,6 +47,7 @@ class Application extends SilexApplication
 
         $this['twig'] = $this->share($this->extend('twig', function($twig, $app) {
             $twig->addFilter('md5', new \Twig_Filter_Function('md5'));
+            $twig->addFilter('humanDate', new \Twig_Filter_Function('\GitList\Util\View::getDate'));
 
             return $twig;
         }));

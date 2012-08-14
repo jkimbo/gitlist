@@ -109,13 +109,19 @@
     line-height: @baseLineHeight;
     text-align: left;
     vertical-align: bottom;
-    #gradient > .vertical(@treeHeaderHighlight, @treeHeader);
-    border-bottom: 1px solid lighten(@treeHeaderBorder, 5%);
+    /*#gradient > .vertical(@treeHeaderHighlight, @treeHeader);*/
+		background: lighten(@treeHeader, 5%);
+    border-bottom: 1px solid lighten(@treeHeaderBorder, 3%);
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(255,255,255,1);
     h4 {
-    padding: 4px 0;
+			padding: 4px 0;
     }
+		p {
+			margin: 0px;
+			color: #444;
+			font-weight: normal;
+		}
   }
   .commit-body {
     padding: 8px;

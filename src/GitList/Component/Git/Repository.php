@@ -415,6 +415,16 @@ class Repository
         return $commit;
     }
 
+		/**
+		 * Get most recent commit
+		 */
+		public function getRecentCommit($branch) 
+		{
+			$head = file_get_contents($this->getPath().'/.git/refs/heads/'.$branch);
+      $commit = $this->getCommit($head);
+			return $commit;
+		}
+
     public function getAuthorStatistics()
     {
         $logs = $this->getClient()->run($this, 'log --pretty=format:\'%an||%ae\' ' . $this->getHead());
