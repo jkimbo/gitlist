@@ -8,17 +8,6 @@
 
 		{% include 'description.twig' %}
 
-    <div class="commit-view">
-        <div class="commit-header">
-            <a href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}" title="View commit"><p>{{ commit.message }}</p></a>
-        </div>
-        <div class="commit-body">
-            <img src="http://gravatar.com/avatar/{{ commit.author.email | md5 }}?s=20" class="pull-left space-right" />
-						<span class="pull-right"><a class="commit-ref" href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}"><i class="icon-list-alt"></i> commit {{ commit.shortHash }}</a></span>
-            <span><a href="mailto:{{ commit.author.email }}">{{ commit.author.name }}</a> authored {{ commit.date.date | humanDate }}<br /></span>
-        </div>
-    </div>
-
     {% embed 'breadcrumb.twig' with {breadcrumbs: breadcrumbs} %}
         {% block extra %}
             <div class="pull-right">
@@ -30,6 +19,17 @@
             </div>
         {% endblock %}
     {% endembed %}
+
+    <div class="commit-view">
+        <div class="commit-header">
+            <a href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}" title="View commit"><p>{{ commit.message }}</p></a>
+        </div>
+        <div class="commit-body">
+            <img src="http://gravatar.com/avatar/{{ commit.author.email | md5 }}?s=20" class="pull-left space-right" />
+						<span class="pull-right"><a class="commit-ref" href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}"><i class="icon-list-alt"></i> commit {{ commit.shortHash }}</a></span>
+            <span><a href="mailto:{{ commit.author.email }}">{{ commit.author.name }}</a> authored {{ commit.date.date | humanDate }}<br /></span>
+        </div>
+    </div>
 
     <table class="tree">
         <thead>

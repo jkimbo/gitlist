@@ -140,15 +140,15 @@ class Client
             throw new \RuntimeException('Unable to execute command: ' . $command);
         }
 
+        $stdout = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+
         $stderr = stream_get_contents($pipes[2]);
         fclose($pipes[2]);
 
         if (!empty($stderr)) {
             throw new \RuntimeException($stderr);
         }
-
-        $stdout = stream_get_contents($pipes[1]);
-        fclose($pipes[1]);
 
         proc_close($process);
 
