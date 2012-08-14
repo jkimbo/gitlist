@@ -6,6 +6,8 @@
 
 {% block content %}
 
+		{% include 'description.twig' %}
+
     <div class="commit-view">
         <div class="commit-header">
             <a href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}" title="View commit"><p>{{ commit.message }}</p></a>

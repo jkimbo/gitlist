@@ -29,7 +29,6 @@ class TreeController implements ControllerProviderInterface
                 $parent = '';
             }
 
-						var_dump($repository->getRecentCommit($branch));
             return $app['twig']->render('tree.twig', array(
                 'files'          => $files->output(),
                 'repo'           => $repo,
