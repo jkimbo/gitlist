@@ -44,4 +44,23 @@ class View
                      'total' => $totalCommits,
         );
     }
+
+		/**
+		 * Get natural date
+		 * From https://github.com/gburtini/Humanize-PHP
+		 */
+		public static function getDate($timestamp, $format='F j, Y') 
+		{
+			// this -60 deals with a bug in strtotime on (some?) PHP builds.
+			$end_tomorrow = strtotime("+2 days 12:01am")-60;
+			$tomorrow = strtotime("tomorrow 12:01am")-60;
+			$yesterday = strtotime("yesterday 12:01am")-60;
+			$today = strtotime("today 12:01am")-60;
+			
+			if($timestamp > $yesterday && $timestamp < $today) return "yesterday";
+			if($timestamp > $today && $timestamp < $tomorrow) return "today";
+			if($timestamp > $tomorrow && $timestamp < $end_tomorrow) return "tomorrow";
+			
+			return date($format, $timestamp);			
+		}
 }
