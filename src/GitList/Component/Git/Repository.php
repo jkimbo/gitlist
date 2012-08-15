@@ -322,7 +322,8 @@ class Repository
 
     public function getCommit($commitHash)
     {
-        $logs = $this->getClient()->run($this, 'log --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' -p ' . $commitHash. ' -1');
+        //$logs = $this->getClient()->run($this, 'log --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' -p ' . $commitHash. ' -1');
+        $logs = $this->getClient()->run($this, 'show --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' ' . $commitHash);
 
         if (empty($logs)) {
             throw new \RuntimeException('No commit log available');
@@ -426,7 +427,25 @@ class Repository
 		public function getRecentCommit($branch) 
 		{
 			$head = file_get_contents($this->getPath().'/.git/refs/heads/'.$branch);
-      $commit = $this->getCommit($head);
+      //$commit = $this->getCommit($head);
+			$logs = $this->getClient()->run($this, 'show --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' ' . $commitHash);
+
+			if (empty($logs)) {
+					throw new \RuntimeException('No commit log available');
+			}
+
+			$pos = strpos($logs, '}');
+			$message = substr($logs, 0, $pos+1);
+			$extra = substr($logs, $pos+1);
+			$message = str_replace("\n", ' - ', $message);
+			$extras = explode("\n", $extra);
+
+			// Read commit metadata
+			$data = json_decode($message, true);
+			$data['message'] = str_replace('-', ' ', $data['message']);
+			$data['body'] = str_replace(' - ', "\n", $data['body']);
+			$commit = new Commit;
+			$commit->importData($data);
 			return $commit;
 		}
 
