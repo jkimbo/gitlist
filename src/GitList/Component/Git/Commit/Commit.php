@@ -14,6 +14,7 @@ class Commit
     protected $commiterDate;
     protected $message;
     protected $diffs;
+		protected $body;
 
     public function importData(array $data)
     {
@@ -39,6 +40,7 @@ class Commit
         );
 
         $this->setMessage($data['message']);
+				$this->setBody($data['body']);
     }
 
     public function getHash()
@@ -145,4 +147,12 @@ class Commit
     {
         return sizeof($this->diffs);
     }
+
+		public function setBody($body) {
+			$this->body = $body;
+		}
+
+		public function getBody() {
+			return $this->body;
+		}
 }
