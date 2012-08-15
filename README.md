@@ -34,6 +34,8 @@ You can also see a live demo [here](http://git.gofedora.com).
 * submodule support
 * multilanguage support
 
+* get most recent commit timestamp instead of just when the folder was modified
+
 ## Requirements
 In order to run GitList on your server, you'll need:
 
