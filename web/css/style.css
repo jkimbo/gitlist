@@ -251,40 +251,6 @@ table .span24{float:none;width:1884px;margin-left:0;}
 .tree tbody td{padding:8px;line-height:18px;text-align:left;vertical-align:top;border-bottom:1px solid #EEE;background-color:#F8F8F8;}
 .tree caption+thead tr:first-child th,.tree caption+thead tr:first-child td,.tree colgroup+thead tr:first-child th,.tree colgroup+thead tr:first-child td,.tree thead:first-child tr:first-child th,.tree thead:first-child tr:first-child td{border-top:0;}
 .tree tbody tr:last-child td{border-bottom:0;}
-.source-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;}.source-view .source-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background-color:#f4f4f4;background-image:-moz-linear-gradient(top, #fafafa, #eaeaea);background-image:-ms-linear-gradient(top, #fafafa, #eaeaea);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));background-image:-webkit-linear-gradient(top, #fafafa, #eaeaea);background-image:-o-linear-gradient(top, #fafafa, #eaeaea);background-image:linear-gradient(top, #fafafa, #eaeaea);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea', GradientType=0);border-bottom:1px solid #d7d7d7;font-weight:bold;color:#555555;text-shadow:1px 1px 1px #ffffff;height:28px;}.source-view .source-header .meta{float:left;padding:4px 0;font-size:14px;}
-.source-view pre{margin:0;padding:12px;border:none;}
-.source-view #sourcecode{margin:0;padding:0;border:none;width:100%;height:600px;}
-.source-view .source-diff{background-color:#f5f5f5;}.source-view .source-diff pre{margin:0;padding:0 0 0 6px;border:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}.source-view .source-diff pre:hover{background-color:#ffc;}
-.source-view .source-diff table td{padding:0px;}
-.source-view .source-diff .new{background-color:#DFD;}
-.source-view .source-diff .old{background-color:#FDD;}
-.source-view .source-diff .chunk{background-color:#e8e8e8;color:#999999;}
-.source-view .source-diff .lineNo{color:#aaa;background-color:#e8e8e8;padding:0 6px;text-align:right;border-right:1px solid #ddd;font-family:monospace;}
-.source-view .image-blob{padding:10px;max-width:600px;}
-.blame-view{width:100%;background-color:#f5f5f5;}.blame-view td{vertical-align:top;padding:8px;}
-.blame-view tr{border-bottom:1px solid #cccccc;}
-.blame-view tr:last-child{border-bottom:0;}
-.blame-view .line{font-weight:700;border-right:1px solid #cccccc;}
-.blame-view .commit{font-weight:700;border-right:1px solid #cccccc;}
-.blame-view pre{margin:0;padding:0;border:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
-.commit-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.commit-view .commit-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background:#f7f7f7;border-bottom:1px solid #d2d2d2;font-weight:bold;text-shadow:1px 1px 1px #ffffff;}.commit-view .commit-header h4{padding:4px 0;}
-.commit-view .commit-header p{margin:0px;color:#444;font-weight:normal;}
-.commit-view .commit-body{padding:8px;}
-.commit-list{list-style-type:none;}.commit-list li{padding:8px 5px 8px 5px;font-size:14px;font-weight:700;border-bottom:1px solid #d7d7d7;}.commit-list li .meta{font-weight:normal;font-size:14px;color:#999999;}
-.commit-list li:last-child{border-bottom:0;margin-bottom:25px;}
-.repository{margin-bottom:18px;border:1px solid #d7d7d7;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.repository .repository-header{border-bottom:1px solid #d7d7d7;text-shadow:1px 1px 1px #ffffff;padding:8px;font-weight:700;font-size:14px;}
-.repository .repository-body{padding:8px;background-color:#f7f7f7;}.repository .repository-body p{margin:0;}
-.repository .repository-body .last-updated{color:#888;font-size:11px;}
-.readme-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;}.readme-view .readme-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background-color:#f4f4f4;background-image:-moz-linear-gradient(top, #fafafa, #eaeaea);background-image:-ms-linear-gradient(top, #fafafa, #eaeaea);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));background-image:-webkit-linear-gradient(top, #fafafa, #eaeaea);background-image:-o-linear-gradient(top, #fafafa, #eaeaea);background-image:linear-gradient(top, #fafafa, #eaeaea);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea', GradientType=0);border-bottom:1px solid #d7d7d7;font-weight:bold;color:#555555;text-shadow:1px 1px 1px #ffffff;height:28px;}.readme-view .readme-header .meta{float:left;padding:4px 0;font-size:14px;}
-.readme-view #readme-content{padding:30px;color:#000000;}.readme-view #readme-content p,.readme-view #readme-content li{font-size:14px;line-height:1.6;}
-.readme-view #readme-content p{margin:15px 0;}
-.description{height:100%;border:1px solid #DDD;border-radius:3px;margin-bottom:20px;border-top-left-radius:0px;border-top-right-radius:0px;}.description .description-content{background:#F7F7F7;padding:10px 10px 1px 10px;border-bottom:1px solid #D2D2D2;}
-.description #url{padding:10px 10px 1px 10px;}
-#masthead{padding:20px 30px;}#masthead p{margin:0px;}
-#recent-commit-info{margin-bottom:5px;}
-.navbar .container{width:940px !important;}
-.commits td{border-top:none;}
-.commits img{border-radius:50%;}
 .rss{display:inline-block;width:16px;height:16px;*margin-right:.3em;line-height:16px;vertical-align:text-top;background-image:url("../img/feed.png");background-position:0 0;background-repeat:no-repeat;}.rss:last-child{*margin-left:0;}
 [class^="icon-"],[class*=" icon-"]{display:inline-block;width:14px;height:14px;*margin-right:.3em;line-height:14px;vertical-align:text-top;background-image:url("../img/glyphicons-halflings.png");background-position:14px 14px;background-repeat:no-repeat;}[class^="icon-"]:last-child,[class*=" icon-"]:last-child{*margin-left:0;}
 .icon-white{background-image:url("../img/glyphicons-halflings-white.png");}
@@ -809,3 +775,40 @@ span.cm-emstrong{font-style:italic;font-weight:bold;}
 span.cm-link{text-decoration:underline;}
 div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0;}
 div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
+.source-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;}.source-view .source-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background-color:#f4f4f4;background-image:-moz-linear-gradient(top, #fafafa, #eaeaea);background-image:-ms-linear-gradient(top, #fafafa, #eaeaea);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));background-image:-webkit-linear-gradient(top, #fafafa, #eaeaea);background-image:-o-linear-gradient(top, #fafafa, #eaeaea);background-image:linear-gradient(top, #fafafa, #eaeaea);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea', GradientType=0);border-bottom:1px solid #d7d7d7;font-weight:bold;color:#555555;text-shadow:1px 1px 1px #ffffff;height:28px;}.source-view .source-header .meta{float:left;padding:4px 0;font-size:14px;}
+.source-view pre{margin:0;padding:12px;border:none;}
+.source-view #sourcecode{margin:0;padding:0;border:none;width:100%;height:600px;}
+.source-view .source-diff{background-color:#f5f5f5;}.source-view .source-diff pre{margin:0;padding:0 0 0 6px;border:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}.source-view .source-diff pre:hover{background-color:#ffc;}
+.source-view .source-diff table td{padding:0px;}
+.source-view .source-diff .new{background-color:#DFD;}
+.source-view .source-diff .old{background-color:#FDD;}
+.source-view .source-diff .chunk{background-color:#e8e8e8;color:#999999;}
+.source-view .source-diff .lineNo{color:#aaa;background-color:#e8e8e8;padding:0 6px;text-align:right;border-right:1px solid #ddd;font-family:monospace;}
+.source-view .image-blob{padding:10px;max-width:600px;}
+.blame-view{width:100%;background-color:#f5f5f5;}.blame-view td{vertical-align:top;padding:8px;}
+.blame-view tr{border-bottom:1px solid #cccccc;}
+.blame-view tr:last-child{border-bottom:0;}
+.blame-view .line{font-weight:700;border-right:1px solid #cccccc;}
+.blame-view .commit{font-weight:700;border-right:1px solid #cccccc;}
+.blame-view pre{margin:0;padding:0;border:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
+.commit-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.commit-view .commit-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background:#f7f7f7;border-bottom:1px solid #d2d2d2;font-weight:bold;text-shadow:1px 1px 1px #ffffff;}.commit-view .commit-header h4{padding:4px 0;}
+.commit-view .commit-header p{margin:0px;color:#444;font-weight:normal;}
+.commit-view .commit-body{padding:8px;}
+.commit-view img{border-radius:50%;margin-top:1px;}
+.commit-view .space-right{padding:0px;margin-right:8px;}
+.recent-commit.commit-view img{margin-top:-2px;}
+.commit-list{list-style-type:none;}.commit-list li{padding:8px 5px 8px 5px;font-size:14px;font-weight:700;border-bottom:1px solid #d7d7d7;}.commit-list li .meta{font-weight:normal;font-size:14px;color:#999999;}
+.commit-list li:last-child{border-bottom:0;margin-bottom:25px;}
+.repository{margin-bottom:18px;border:1px solid #d7d7d7;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.repository .repository-header{border-bottom:1px solid #d7d7d7;text-shadow:1px 1px 1px #ffffff;padding:8px;font-weight:700;font-size:14px;}
+.repository .repository-body{padding:8px;background-color:#f7f7f7;}.repository .repository-body p{margin:0;}
+.repository .repository-body .last-updated{color:#888;font-size:11px;}
+.readme-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;}.readme-view .readme-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background-color:#f4f4f4;background-image:-moz-linear-gradient(top, #fafafa, #eaeaea);background-image:-ms-linear-gradient(top, #fafafa, #eaeaea);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));background-image:-webkit-linear-gradient(top, #fafafa, #eaeaea);background-image:-o-linear-gradient(top, #fafafa, #eaeaea);background-image:linear-gradient(top, #fafafa, #eaeaea);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea', GradientType=0);border-bottom:1px solid #d7d7d7;font-weight:bold;color:#555555;text-shadow:1px 1px 1px #ffffff;height:28px;}.readme-view .readme-header .meta{float:left;padding:4px 0;font-size:14px;}
+.readme-view #readme-content{padding:30px;color:#000000;}.readme-view #readme-content p,.readme-view #readme-content li{font-size:14px;line-height:1.6;}
+.readme-view #readme-content p{margin:15px 0;}
+.description{height:100%;border:1px solid #DDD;border-radius:3px;margin-bottom:20px;border-top-left-radius:0px;border-top-right-radius:0px;}.description .description-content{background:#F7F7F7;padding:10px 10px 1px 10px;border-bottom:1px solid #D2D2D2;}
+.description #url{padding:10px 10px 1px 10px;}
+#masthead{padding:20px 30px;}#masthead p{margin:0px;}
+#recent-commit-info{margin-bottom:5px;}
+.navbar .container{width:940px;}
+.commits td{border-top:none;}
+.commits img{border-radius:50%;}
