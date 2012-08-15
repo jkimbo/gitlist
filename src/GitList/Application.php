@@ -40,6 +40,7 @@ class Application extends SilexApplication
             'git.client'      => $config->get('git', 'client'),
             'git.repos'       => $config->get('git', 'repositories'),
             'git.hidden'      => $config->get('git', 'hidden') ? $config->get('git', 'hidden') : array(),
+            'git.http_host'   => $config->get('git', 'http_host'),
         ));
         $this->register(new ViewUtilServiceProvider());
         $this->register(new RepositoryUtilServiceProvider());

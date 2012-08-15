@@ -8,18 +8,10 @@
 
 		{% include 'description.twig' %}
 
-    {% embed 'breadcrumb.twig' with {breadcrumbs: breadcrumbs} %}
-        {% block extra %}
-            <div class="pull-right">
-                <div class="btn-group download-buttons">
-                    <a href="{{ path('archive', {repo: repo, branch: branch, format: 'zip'}) }}" class="btn btn-mini" title="Download '{{ branch }}' as a ZIP archive">ZIP</a>
-                    <a href="{{ path('archive', {repo: repo, branch: branch, format: 'tar'}) }}" class="btn btn-mini" title="Download '{{ branch }}' as a TAR archive">TAR</a>
-                </div>
-                <a href="{{ path('rss', {repo: repo, branch: branch}) }}" class="rss-icon"><i class="rss"></i></a>
-            </div>
-        {% endblock %}
-    {% endembed %}
-
+		<div id="recent-commit-info">
+			<i class="icon-time"></i>
+			Latest commit on {{ branch }} branch
+		</div>
     <div class="commit-view">
         <div class="commit-header">
             <a href="{{ path('commit', {repo: repo, commit: commit.shortHash}) }}" title="View commit"><p>{{ commit.message }}</p></a>
@@ -30,6 +22,9 @@
             <span><a href="mailto:{{ commit.author.email }}">{{ commit.author.name }}</a> authored {{ commit.date.date | humanDate }}<br /></span>
         </div>
     </div>
+
+    {% embed 'breadcrumb.twig' with {breadcrumbs: breadcrumbs} %}
+    {% endembed %}
 
     <table class="tree">
         <thead>

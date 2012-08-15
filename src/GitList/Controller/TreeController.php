@@ -41,6 +41,7 @@ class TreeController implements ControllerProviderInterface
                 'readme'         => $app['util.repository']->getReadme($repo, $branch),
 								'description'		 => $app['util.repository']->getDescription($repo),
 								'commit'		     => $repository->getRecentCommit($branch),
+								'http_host'			 => $app['git.http_host'],
             ));
         })->assert('repo', '[\w-._]+')
           ->assert('branch', '[\w-._]+')

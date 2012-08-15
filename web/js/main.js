@@ -36,4 +36,14 @@ $(function () {
         $pager.find('.previous').remove();
     }
     paginate();
+
+		/**
+		 * Auto select http url
+		 */
+		if($('#url-field').length) {
+			$('#url-field').click(function() {
+				this.focus();
+				this.select();
+			});
+		}
 });
