@@ -322,69 +322,75 @@ class Repository
 
     public function getCommit($commitHash)
     {
-        $logs = $this->getClient()->run($this, 'show --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f"}\' ' . $commitHash);
+        //$logs = $this->getClient()->run($this, 'log --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' -p ' . $commitHash. ' -1');
+        $logs = $this->getClient()->run($this, 'show --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' ' . $commitHash);
 
         if (empty($logs)) {
             throw new \RuntimeException('No commit log available');
         }
 
-        $logs = explode("\n", $logs);
+				$pos = strpos($logs, '}');
+				$message = substr($logs, 0, $pos+1);
+				$extra = substr($logs, $pos+1);
+				$message = str_replace("\n", ' - ', $message);
+				$extras = explode("\n", $extra);
 
         // Read commit metadata
-        $data = json_decode($logs[0], true);
-        $data['message'] = str_replace('-', ' ', $data['message']);
+        $data = json_decode($message, true);
+				$data['message'] = str_replace('-', ' ', $data['message']);
+				$data['body'] = str_replace(' - ', "\n", $data['body']);
         $commit = new Commit;
         $commit->importData($data);
-        unset($logs[0]);
+        //unset($logs[0]);
 
-        if (empty($logs[1])) {
-            $logs = explode("\n", $this->getClient()->run($this, 'diff '.$commitHash.'~1..'.$commitHash));
+        if (empty($extras[0])) {
+            $extras = explode("\n", $this->getClient()->run($this, 'diff '.$commitHash.'~1..'.$commitHash));
         }
 
         // Read diff logs
         $lineNumOld = 0;
         $lineNumNew = 0;
-        foreach ($logs as $log) {
-            if ('diff' === substr($log, 0, 4)) {
+        foreach ($extras as $extra) {
+            if ('diff' === substr($extra, 0, 4)) {
                 if (isset($diff)) {
                     $diffs[] = $diff;
                 }
 
                 $diff = new Diff;
-                preg_match('/^diff --[\S]+ (a\/)?([\S]+)( b\/)?/', $log, $name);
+                preg_match('/^diff --[\S]+ (a\/)?([\S]+)( b\/)?/', $extra, $name);
                 $diff->setFile($name[2]);
                 continue;
             }
 
-            if ('index' === substr($log, 0, 5)) {
-                $diff->setIndex($log);
+            if ('index' === substr($extra, 0, 5)) {
+                $diff->setIndex($extra);
                 continue;
             }
 
-            if ('---' === substr($log, 0, 3)) {
-                $diff->setOld($log);
+            if ('---' === substr($extra, 0, 3)) {
+                $diff->setOld($extra);
                 continue;
             }
 
-            if ('+++' === substr($log, 0, 3)) {
-                $diff->setNew($log);
+            if ('+++' === substr($extra, 0, 3)) {
+                $diff->setNew($extra);
                 continue;
             }
 
             // Handle binary files properly.
-            if ('Binary' === substr($log, 0, 6)) {
+            if ('Binary' === substr($extra, 0, 6)) {
                 $m = array();
-                if (preg_match('/Binary files (.+) and (.+) differ/', $log, $m)) {
+                if (preg_match('/Binary files (.+) and (.+) differ/', $extra, $m)) {
                     $diff->setOld($m[1]);
                     $diff->setNew("    {$m[2]}");
                 }
             }
 
-            if (!empty($log)) {
-                switch ($log[0]) {
+            if (!empty($extra)) {
+                switch ($extra[0]) {
                     case "@":
                         // Set the line numbers
-                        preg_match('/@@ -([0-9]+)/', $log, $matches);
+                        preg_match('/@@ -([0-9]+)/', $extra, $matches);
                         $lineNumOld = $matches[1] - 1;
                         $lineNumNew = $matches[1] - 1;
                         break;
@@ -403,7 +409,7 @@ class Repository
                 $lineNumNew++;
             }
 
-            $diff->addLine($log, $lineNumOld, $lineNumNew);
+            $diff->addLine($extra, $lineNumOld, $lineNumNew);
         }
 
         if (isset($diff)) {
@@ -413,7 +419,7 @@ class Repository
         $commit->setDiffs($diffs);
 
         return $commit;
-    }
+  	}
 
 		/**
 		 * Get most recent commit
@@ -421,7 +427,25 @@ class Repository
 		public function getRecentCommit($branch) 
 		{
 			$head = file_get_contents($this->getPath().'/.git/refs/heads/'.$branch);
-      $commit = $this->getCommit($head);
+      //$commit = $this->getCommit($head);
+			$logs = $this->getClient()->run($this, 'show --pretty=format:\'{"hash": "%H", "short_hash": "%h", "tree": "%T", "parent": "%P", "author": "%an", "author_email": "%ae", "date": "%at", "commiter": "%cn", "commiter_email": "%ce", "commiter_date": "%ct", "message": "%f", "body": "%B"}\' ' . $commitHash);
+
+			if (empty($logs)) {
+					throw new \RuntimeException('No commit log available');
+			}
+
+			$pos = strpos($logs, '}');
+			$message = substr($logs, 0, $pos+1);
+			$extra = substr($logs, $pos+1);
+			$message = str_replace("\n", ' - ', $message);
+			$extras = explode("\n", $extra);
+
+			// Read commit metadata
+			$data = json_decode($message, true);
+			$data['message'] = str_replace('-', ' ', $data['message']);
+			$data['body'] = str_replace(' - ', "\n", $data['body']);
+			$commit = new Commit;
+			$commit->importData($data);
 			return $commit;
 		}
 
