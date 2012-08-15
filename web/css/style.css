@@ -279,7 +279,7 @@ table .span24{float:none;width:1884px;margin-left:0;}
 .readme-view #readme-content{padding:30px;color:#000000;}.readme-view #readme-content p,.readme-view #readme-content li{font-size:14px;line-height:1.6;}
 .readme-view #readme-content p{margin:15px 0;}
 .description{background:#F7F7F7;height:100%;padding:10px 10px 0px 10px;border:1px solid #DDD;border-bottom:none;border-radius:3px;}
-#masthead{padding:20px 60px;}#masthead p{margin:0px;}
+#masthead{padding:20px 30px;}#masthead p{margin:0px;}
 .rss{display:inline-block;width:16px;height:16px;*margin-right:.3em;line-height:16px;vertical-align:text-top;background-image:url("../img/feed.png");background-position:0 0;background-repeat:no-repeat;}.rss:last-child{*margin-left:0;}
 [class^="icon-"],[class*=" icon-"]{display:inline-block;width:14px;height:14px;*margin-right:.3em;line-height:14px;vertical-align:text-top;background-image:url("../img/glyphicons-halflings.png");background-position:14px 14px;background-repeat:no-repeat;}[class^="icon-"]:last-child,[class*=" icon-"]:last-child{*margin-left:0;}
 .icon-white{background-image:url("../img/glyphicons-halflings-white.png");}
