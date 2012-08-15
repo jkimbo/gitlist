@@ -1,5 +1,4 @@
-.source-view {
-  width: 100%;
+.source-view { width: 100%;
   margin-bottom: @baseLineHeight;
   border: 1px solid @treeHeaderBorder;
 
@@ -207,12 +206,20 @@
 }
 
 .description {
-	background: #F7F7F7;
 	height: 100%;
-	padding: 10px 10px 0px 10px;
 	border: 1px solid #DDD;
-	border-bottom: none;
 	border-radius: 3px;
+	margin-bottom: 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	.description-content {
+		background: #F7F7F7;
+		padding: 10px 10px 1px 10px;
+		border-bottom: 1px solid #D2D2D2;
+	}
+	#url {
+		padding: 10px 10px 1px 10px;
+	}
 }
 
 // Front page masthead
@@ -221,4 +228,8 @@
 	p {
 		margin: 0px;
 	}
+}
+
+#recent-commit-info {
+	margin-bottom: 5px;
 }
