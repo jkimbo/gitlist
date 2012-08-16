@@ -146,11 +146,11 @@ class Client
         $stderr = stream_get_contents($pipes[2]);
         fclose($pipes[2]);
 
-        if (!empty($stderr)) {
+        $status = proc_close($process);
+
+        if ($status != 0) {
             throw new \RuntimeException($stderr);
         }
-
-        proc_close($process);
 
         return $stdout;
     }
