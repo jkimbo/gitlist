@@ -725,7 +725,7 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .space-right{padding:0 8px 0 0;}
 .space-left{padding:0 0 0 8px;}
 .CodeMirror{line-height:16px;font-family:Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;position:relative;overflow:hidden;}
-.CodeMirror-scroll{overflow-x:auto;overflow-y:hidden;height:500px;position:relative;outline:none;}
+.CodeMirror-scroll{overflow-x:auto;overflow-y:hidden;height:600px;position:relative;outline:none;}
 .CodeMirror-scrollbar{float:right;overflow-x:hidden;overflow-y:scroll;margin-left:-1px;}
 .CodeMirror-scrollbar-inner{width:1px;}
 .CodeMirror-scrollbar.cm-sb-overlap{position:absolute;z-index:1;float:none;right:0;min-width:12px;}
