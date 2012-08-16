@@ -4,11 +4,12 @@
 {% block body %}
 {% include 'navigation.twig' %}
 
-<div class="container">
+<div class="container index">
 
 		{% include 'masthead.twig' %}
+		<div class="row">
     {% for repository in repositories %}
-    <div class="repository">
+    <div class="repository span3">
         <div class="repository-header">
             <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.name }}</a>
             <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
@@ -19,6 +20,7 @@
         </div>
     </div>
     {% endfor %}
+		</div>
 
     <hr>
 
