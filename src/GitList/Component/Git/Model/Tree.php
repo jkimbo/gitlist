@@ -43,6 +43,7 @@ class Tree extends ScopeAware implements \RecursiveIterator
                 continue;
             }
 
+            // Symbolic link
             if ($file[0] == '120000') {
                 $show = $this->getClient()->run($this->getRepository(), 'show ' . $file[2]);
                 $tree = new Symlink;
