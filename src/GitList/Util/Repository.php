@@ -133,9 +133,14 @@ class Repository
 
         foreach ($files as $file) {
             if (preg_match('/^readme*/i', $file['name'])) {
+								if($tree) {
+									$readme = "$branch:\"$tree/{$file['name']}\"";
+								} else {
+									$readme = "$branch:\"{$file['name']}\"";
+								}
                 return array(
                     'filename' => $file['name'],
-                    'content'  => $repository->getBlob("$branch:\"$tree/{$file['name']}\"")->output()
+                    'content'  => $repository->getBlob($readme)->output()
                 );
             }
         }
