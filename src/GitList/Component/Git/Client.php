@@ -111,6 +111,7 @@ class Client
                         $description = 'There is no repository description file. Please, create one to remove this message.';
                     }
 
+										// Get last updated
 										if($isBare) {
 											$mtime = $file->getMTime();
 										} else {

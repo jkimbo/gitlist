@@ -12,7 +12,7 @@
             <td width="95%">
                 <span class="pull-right"><a class="btn btn-small" href="{{ path('commit', {repo: repo, commit: item.shortHash}) }}"><i class="icon-list-alt"></i> View {{ item.shortHash }}</a></span>
                 <h4><a class="" href="{{ path('commit', {repo: repo, commit: item.shortHash}) }}">{{ item.message }}</a></h4>
-                <span><a href="mailto:{{ item.author.email }}">{{ item.author.name }}</a> authored {{ item.date.date | humanDate }}</span>
+                <span><a href="mailto:{{ item.author.email }}">{{ item.author.name }}</a> authored <span title="{{ item.date.date }}">{{ item.date.date | humanDate }}</span></span>
             </td>
         </tr>
         {% endfor %}
