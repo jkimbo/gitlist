@@ -38,7 +38,7 @@ class TreeController implements ControllerProviderInterface
                 'breadcrumbs'    => $breadcrumbs,
                 'branches'       => $repository->getBranches(),
                 'tags'           => $repository->getTags(),
-                'readme'         => $app['util.repository']->getReadme($repo, $branch),
+                'readme'         => $app['util.repository']->getReadme($repo, $branch, $tree),
                 'description'    => $app['util.repository']->getDescription($repo),
                 'commit'         => $repository->getRecentCommit($branch),
                 'http_host'      => $app['git.http_host'],
