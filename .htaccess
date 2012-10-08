@@ -3,6 +3,7 @@
 
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
+		#RewriteBase /git/
     RewriteRule ^ index.php [L]
 </IfModule>
 <Files config.ini>

@@ -154,6 +154,12 @@ class Repository
 			$description = $repository->getPath().'/.git/description';
 			if (file_exists($description)) {
 					$description = file_get_contents($description);
+			} else {
+				// try bare repo
+				$description = $repository->getPath().'/description';
+				if(file_exists($description)) {
+					$description = file_get_contents($description);
+				}
 			}
 			return $description;
 		}
