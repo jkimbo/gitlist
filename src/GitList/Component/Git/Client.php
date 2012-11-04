@@ -108,7 +108,7 @@ class Client
 
                     // Get last updated
                     if($isBare) {
-                        $mtime = filemtime($file->getMTime().'/objects/');
+                        $mtime = filemtime($file->getMTime().'/objects');
                     } else {
                         $mtime = filemtime($file->getPathname() . '/.git/');
                     }
