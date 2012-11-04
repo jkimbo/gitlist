@@ -6,18 +6,21 @@
 
 <div class="container">
 
-		{% include 'masthead.twig' %}
-    {% for repository in repositories %}
-    <div class="repository">
-        <div class="repository-header">
-            <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.name }}</a>
-            <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
+    {% include 'masthead.twig' %}
+
+    <div class="row">
+        {% for repository in repositories %}
+        <div class="repository span4">
+            <div class="repository-header">
+                <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.name }}</a>
+                <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
+            </div>
+            <div class="repository-body">
+                <p>{{ repository.description }}</p>
+            </div>
         </div>
-        <div class="repository-body">
-            <p>{{ repository.description }}</p>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
     <hr>
 

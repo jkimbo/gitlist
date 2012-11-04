@@ -813,3 +813,4 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 .commits td{border-top:none;}
 .commits img{border-radius:50%;}
 .commits h4 a{color:#333;}
+.repository.span4{width:298px;}
