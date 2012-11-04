@@ -65,12 +65,7 @@ class Client
             throw new \RuntimeException('There are no GIT repositories in ' . $path);
         }
 
-				uasort($repositories, function($a, $b) {
-					if($a['mtime'] == $b['mtime']) {
-						return 0;
-					}	
-					return ($a['mtime'] > $b['mtime']) ? -1 : 1;
-				});
+        sort($repositories);
 
         return $repositories;
     }
