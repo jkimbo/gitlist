@@ -799,8 +799,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 .recent-commit.commit-view img{margin-top:-2px;}
 .commit-list{list-style-type:none;}.commit-list li{padding:8px 5px 8px 5px;font-size:14px;font-weight:700;border-bottom:1px solid #d7d7d7;}.commit-list li .meta{font-weight:normal;font-size:14px;color:#999999;}
 .commit-list li:last-child{border-bottom:0;margin-bottom:25px;}
-.repository{margin-bottom:18px;border:1px solid #d7d7d7;}.repository .repository-header{border-bottom:1px solid #d7d7d7;text-shadow:1px 1px 1px #ffffff;padding:8px;font-weight:700;font-size:14px;}
-.repository .repository-body{padding:8px;background-color:#f7f7f7;}.repository .repository-body p{margin:0;}
+.repository{margin-bottom:18px;border:1px solid #d7d7d7;background-color:#f7f7f7;}.repository .repository-header{border-bottom:1px solid #d7d7d7;text-shadow:1px 1px 1px #ffffff;padding:8px;font-weight:700;font-size:14px;background:#fff;}
+.repository .repository-body{padding:8px;}.repository .repository-body p{margin:0;}
 .repository .repository-body .last-updated{color:#888;font-size:11px;}
 .readme-view{width:100%;margin-bottom:18px;border:1px solid #cacaca;}.readme-view .readme-header{padding:8px;line-height:18px;text-align:left;vertical-align:bottom;background-color:#f4f4f4;background-image:-moz-linear-gradient(top, #fafafa, #eaeaea);background-image:-ms-linear-gradient(top, #fafafa, #eaeaea);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));background-image:-webkit-linear-gradient(top, #fafafa, #eaeaea);background-image:-o-linear-gradient(top, #fafafa, #eaeaea);background-image:linear-gradient(top, #fafafa, #eaeaea);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea', GradientType=0);border-bottom:1px solid #d7d7d7;font-weight:bold;color:#555555;text-shadow:1px 1px 1px #ffffff;height:28px;}.readme-view .readme-header .meta{float:left;padding:4px 0;font-size:14px;}
 .readme-view #readme-content{padding:30px;color:#000000;}.readme-view #readme-content p,.readme-view #readme-content li{font-size:14px;line-height:1.6;}
@@ -813,4 +813,4 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 .commits td{border-top:none;}
 .commits img{border-radius:50%;}
 .commits h4 a{color:#333;}
-.repository.span4{width:298px;}
+.repository.span4{width:298px;height:100px;}
