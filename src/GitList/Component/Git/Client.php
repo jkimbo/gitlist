@@ -106,12 +106,12 @@ class Client
                         $description = 'There is no repository description file. Please, create one to remove this message.';
                     }
 
-										// Get last updated
-										if($isBare) {
-											$mtime = $file->getMTime();
-										} else {
-											$mtime = filemtime($file->getPathname() . '/.git/');
-										}
+                    // Get last updated
+                    if($isBare) {
+                        $mtime = filemtime($file->getMTime().'/objects/');
+                    } else {
+                        $mtime = filemtime($file->getPathname() . '/.git/');
+                    }
 
                     $repositories[] = array('name' => $file->getFilename(), 'path' => $file->getPathname(), 'description' => $description, 'mtime' => $mtime);
                     continue;
